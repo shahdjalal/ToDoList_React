@@ -1,0 +1,18 @@
+footer {
+  margin-top: 80px;
+  padding: 40px;
+  background-color: #ffffffa9;
+  box-shadow: -2px -5px 16px rgba(0, 0, 0, 0.574);
+  text-align: center;
+}
+
+body.dark footer {
+  background-color: #6b63ff77;
+  box-shadow: -1px -1px 10px #fff;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}

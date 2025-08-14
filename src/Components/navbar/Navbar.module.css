@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap');
+
+nav {
+  background-image: linear-gradient(to right, var(--mainColor), white);
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.dropdownNav {
+  display: none;
+}
+
+.logo {
+  font-family: "Playwrite VN", cursive;
+  font-size: 30px;
+  display: flex;
+align-items: center;
+ justify-content: center;
+ gap: 10px;
+}
+
+.scrollNav {
+  box-shadow: var(--boxShadow);
+}
+body.dark .scrollNav {
+  box-shadow: 3px 6px 5px #dad8d899;
+}
+
+
+.lightbtn {
+  display: none;
+  font-size: 25px;
+  
+   
+}
+.darkbtn{
+ font-size: 25px;
+
+ 
+}
+body.dark .darkbtn {
+  display: none;
+   
+}
+body.dark .lightbtn {
+  display: block;
+    font-size: 25px;
+}
+
+ nav.dark{
+  background-image: linear-gradient(to right, var(--mainColor), black);
+  color: white;
+}
+
+nav.dark a{
+   color: white;
+}
+
+.modeBtn{
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+
+   transition: transform 0.3s ease;
+}
+
+.modeBtn:hover{
+  cursor: pointer;
+    transform: scale(1.5);
+}
