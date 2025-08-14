@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grechen+Fuemen&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+HU:wght@100..400&family=Playwrite+VN:wght@100..400&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+
+  /* background-repeat: no-repeat; */
+  color: rgba(0, 0, 0, 0.886);
+  background-size: cover;
+}
+.dark {
+  background-image: linear-gradient(to right, #6c63ff, black);
+  color: #fff;
+}
+
+.light {
+  background-image: linear-gradient(to right, #6c63ff, white);
+  color: #000;
+}
+
+* {
+  font-family: "Shantell Sans", cursive;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+
+a {
+  text-decoration: none;
+  font-size: 20px;
+  transition: font-size 0.3s;
+  color: #000;
+}
+a:hover {
+  cursor: pointer;
+  font-size: 25px;
+}
+body.dark a {
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  width: calc(100% - 200px);
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+/*----------- dropdown -------------*/
+
+.dropbtn,
+.dropNavbtn {
+  background-image: linear-gradient(to right, #6c63ff, white);
+  color: black;
+  padding: 16px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5%;
+  box-shadow: 3px 6px 5px #11111199;
+  border-bottom: solid 3px #6c63ff;
+}
+
+.dropdown-nav {
+  display: none;
+}
+.dropNavbtn {
+  font-size: 17px;
+}
+
+.dropdown-nav:hover .dropdown-content {
+  display: block;
+}
+body.dark .dropbtn,
+body.dark .dropNavbtn {
+  color: white;
+  background-image: linear-gradient(to right, #6c63ff, black);
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  left: auto;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #6b63ffa3;
+}
+
+body.dark .dropdown-content {
+  background-image: linear-gradient(to right, #6c63ff, black);
+}
+body.dark .dropdown-content a {
+  color: white;
+}
+
+body.dark .dropdown-content a:hover {
+  background-color: #6b63ffad;
+}
