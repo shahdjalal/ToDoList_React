@@ -93,6 +93,10 @@ header {
   color: red;
   font-size: 25px;
 }
+.edit{
+  font-size: 25px;
+  color: green;
+}
 
 .delete:hover {
   padding-right: 1px;

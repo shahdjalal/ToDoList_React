@@ -10,56 +10,18 @@ import {
   MdOutlineChecklist,
   MdOutlineDeleteForever,
 } from "react-icons/md";
-export default function TaskInput() {
-  const { darkMode, toggleTheme } = useContext(ThemeContext);
-  const [data, setData] = useState([]);
-  const [input, setInput] = useState("");
-  const [filter, setFilter] = useState("all");
-
-  // to check if has data
-  useEffect(() => {
-    const savedTasks = localStorage.getItem("toDo_tasks");
-    if (savedTasks) {
-      setData(JSON.parse(savedTasks));
-    } else {
-      localStorage.setItem("toDo_tasks", JSON.stringify([]));
-    }
-  }, []);
-
-  // add new task
-  const addNewTask = () => {
-    const newTask = { text: input, complete: false };
-    const updatedTasks = [...data, newTask];
-    setData(updatedTasks);
-    localStorage.setItem("toDo_tasks", JSON.stringify(updatedTasks));
-    setInput("");
-    window.location.href = "#all-tasks";
-  };
-
-  // cmpletetd tasks
-  const toggleComplete = (index) => {
-    const updatedlist = [...data];
-    updatedlist[index].complete = !updatedlist[index].complete;
-    setData(updatedlist);
-    localStorage.setItem("toDo_tasks", JSON.stringify(updatedlist));
-  };
-
-  //delete task
-  const deleteTask = (index) => {
-    const updatedlist = [...data];
-    updatedlist.splice(index, 1);
-    setData(updatedlist);
-    localStorage.setItem("toDo_tasks", JSON.stringify(updatedlist));
-  };
-  // delete completed
-  const deleteCompleted = () => {
-    const remainingTasks = data.filter((task) => !task.complete);
-    setData(remainingTasks);
-    localStorage.setItem("toDo_tasks", JSON.stringify(remainingTasks));
-  };
-
+import { FaEdit } from "react-icons/fa";
+export default function TaskList({
+  tasks,
+  toggleComplete,
+  deleteTask,
+  deleteCompleted,
+  filter,
+  setFilter,
+}) {
+  
   //filter
-  const filteredTasks = data.filter((task) => {
+  const filteredTasks = tasks.filter((task) => {
     if (filter === "all") return true;
     if (filter === "completed") return task.complete;
     if (filter === "notCompleted") return !task.complete;
@@ -67,37 +29,6 @@ export default function TaskInput() {
 
   return (
     <>
-      {/* input */}
-
-      <header className="header">
-        <div className="container">
-          <p className={style.typewriter}>
-            <CiBoxList className={style.taskIcon} /> What do you want to achieve
-            today ...
-          </p>
-          <div className={style.taskBox}>
-            <input
-              type="text"
-              placeholder="Add your task . . ."
-              name="task"
-              className={style.taskInput}
-              value={input}
-              onChange={(e) => {
-                setInput(e.target.value);
-              }}
-            />
-            <button
-              className={`${style.addBtn} ${darkMode ? style.dark : ""}`}
-              onClick={() => {
-                addNewTask();
-              }}
-            >
-              ADD <IoMdAdd />
-            </button>
-          </div>
-        </div>
-      </header>
-
       {/* display */}
 
       <div className="allTasks" id="all-tasks">
@@ -156,13 +87,22 @@ export default function TaskInput() {
                       {task.text}
                     </span>
                   </div>
-                  <button
-                    className={style.delete}
-                    onClick={() => deleteTask(index)}
-                    key={index}
-                  >
-                    <MdDeleteForever title="Delete task" />
-                  </button>
+                  <div>
+                    <button
+                      className={style.edit}
+                      onClick={() => deleteTask(index)}
+                      key={index}
+                    >
+                      <FaEdit title="edit task" />
+                    </button>
+                    <button
+                      className={style.delete}
+                      onClick={() => deleteTask(index)}
+                      key={index}
+                    >
+                      <MdDeleteForever title="Delete task" />
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
