@@ -12,6 +12,8 @@ function App() {
   const { darkMode } = useContext(ThemeContext);
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("all");
+  const [editIndex,setEditIndex] = useState(null);
+    const [editText,setEditText] = useState("");
 
   // to check if has data
   useEffect(() => {
@@ -29,6 +31,7 @@ function App() {
     const updatedTasks = [...data, newTask];
     setData(updatedTasks);
     localStorage.setItem("toDo_tasks", JSON.stringify(updatedTasks));
+      window.location.href = "#all-tasks";
   };
 
   // cmpletetd tasks
@@ -53,11 +56,31 @@ function App() {
     localStorage.setItem("toDo_tasks", JSON.stringify(remainingTasks));
   };
 
+  
+//edit
+
+const startEdit =(index) =>{
+  setEditIndex(index);
+  setEditText(data[index].text)
+    window.location.href = "#task-form";
+};
+
+const saveEdit=()=>{
+  if(editIndex === null) return;
+  const updated =[...data];
+  updated[editIndex].text = editText;
+setData(updated);
+  localStorage.setItem("toDo_tasks", JSON.stringify(updated));
+  setEditIndex(null);
+  setEditText("")
+     window.location.href = "#all-tasks";
+}
+
   return (
     <>
       <Navbar />
 
-      <TaskForm addTask={addTask} darkMode={darkMode} />
+      <TaskForm addTask={addTask} darkMode={darkMode} editText={editText} setEditText={setEditText} editIndex={editIndex} saveEdit={saveEdit}/>
       <TaskList
         tasks={data}
         toggleComplete={toggleComplete}
@@ -65,6 +88,7 @@ function App() {
         deleteCompleted={deleteCompleted}
         filter={filter}
         setFilter={setFilter}
+        startEdit={startEdit}
       />
 
       <Footer />

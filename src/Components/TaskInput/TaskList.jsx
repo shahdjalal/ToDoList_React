@@ -18,8 +18,9 @@ export default function TaskList({
   deleteCompleted,
   filter,
   setFilter,
+  startEdit
 }) {
-  
+
   //filter
   const filteredTasks = tasks.filter((task) => {
     if (filter === "all") return true;
@@ -90,7 +91,7 @@ export default function TaskList({
                   <div>
                     <button
                       className={style.edit}
-                      onClick={() => deleteTask(index)}
+                      onClick={() => startEdit(index)}
                       key={index}
                     >
                       <FaEdit title="edit task" />
