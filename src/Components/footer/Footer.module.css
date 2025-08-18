@@ -6,13 +6,18 @@ footer {
   text-align: center;
 }
 
-body.dark footer {
-  background-color: #6b63ff77;
-  box-shadow: -1px -1px 10px #fff;
+.dark {
+  background-color:var(--mainColor);
+  box-shadow: -1px -1px 10px var(--darkText);
 }
 
 .socialIcons {
   display: flex;
   gap: 15px;
   justify-content: center;
+  margin-top: 20px;
+}
+
+.dark a {
+  color: var(--darkText);
 }

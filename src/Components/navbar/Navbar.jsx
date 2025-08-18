@@ -9,6 +9,7 @@ import { ThemeContext } from "../context/ThemeContext";
 export default function Navbar() {
   const [scrolled, setScrollded] = useState(false);
   const { darkMode, toggleTheme } = useContext(ThemeContext);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -21,7 +22,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`${style.navbarItems}  ${scrolled ? style.scrollNav : ""} ${darkMode ? style.dark: "" }`}>
+    <nav
+      className={`${style.navbarItems}  ${scrolled ? style.scrollNav : ""} ${
+        darkMode ? style.dark : ""
+      }`}
+    >
       <div className="container">
         <div className="row">
           <div className={style.logo}>
@@ -33,38 +38,36 @@ export default function Navbar() {
               <li>
                 <a href="#all-tasks"> All tasks</a>
               </li>
-                 <li>
-  <button
-    onClick={toggleTheme}
-  className={style.modeBtn} >
-    {darkMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
-  </button>
-  
-</li>
-
+              <li>
+                <button onClick={toggleTheme} className={style.modeBtn}>
+                  {darkMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+                </button>
+              </li>
             </ul>
           </div>
-          <div className={style.dropdownNav}>
-            <button className="dropNavbtn">
+
+          <div className={style.dropDownContainer}>
+            <button
+              className={style.dropDownBtn}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
               <RxDropdownMenu />
             </button>
-            <div className={style.dropdownContent}>
-              <ul>
-                <li>
-                  <a href="#all-tasks"> All tasks</a>
-                </li>
+
+            <ul
+              className={`${style.dropDownItems} ${
+                isDropdownOpen ? style.active : ""
+              }`}
+            >
               <li>
-  <button
-    onClick={toggleTheme}
-    className={darkMode ? style.darkbtn : style.lightbtn}
-  >
-    {darkMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
-  </button>
-
-</li>
-
-              </ul>
-            </div>
+                <a href="#all-tasks"> All tasks</a>
+              </li>
+              <li>
+                <button onClick={toggleTheme} className={style.modeBtn}>
+                  {darkMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

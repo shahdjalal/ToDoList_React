@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap");
 
+.navContainer{
+ width: calc(100% - 200px);
+   margin: auto;
+}
 nav {
   background-image: linear-gradient(to right, var(--mainColor), white);
   padding: 10px;
@@ -7,65 +11,113 @@ nav {
   top: 0;
   z-index: 1000;
 }
-.dropdownNav {
-  display: none;
-}
 
 .logo {
   font-family: "Playwrite VN", cursive;
   font-size: 30px;
   display: flex;
-align-items: center;
- justify-content: center;
- gap: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .scrollNav {
   box-shadow: var(--boxShadow);
 }
-body.dark .scrollNav {
-  box-shadow: 3px 6px 5px #dad8d899;
+.scrollNav.dark {
+  box-shadow: var(--boxShadowSDark);
 }
 
-
-.lightbtn {
-  display: none;
-  font-size: 25px;
-  
-   
-}
-.darkbtn{
- font-size: 25px;
-
- 
-}
-body.dark .darkbtn {
-  display: none;
-   
-}
-body.dark .lightbtn {
-  display: block;
-    font-size: 25px;
-}
-
- nav.dark{
+nav.dark {
   background-image: linear-gradient(to right, var(--mainColor), black);
-  color: white;
+  color: var(--darkText);
 }
 
-nav.dark a{
-   color: white;
+nav.dark a {
+  color: var(--darkText);
 }
 
-.modeBtn{
+.modeBtn {
   background-color: transparent;
   border: none;
   font-size: 25px;
-
-   transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.modeBtn:hover{
+.modeBtn:hover {
   cursor: pointer;
-    transform: scale(1.5);
+  transform: scale(1.5);
+}
+.dark .modeBtn {
+  color:var(--darkText);
+}
+
+.dropDownContainer {
+  position: relative; 
+  display: none;
+}
+
+.dropDownItems {
+  display: none;
+  position: absolute;
+  top: 100%;   
+  left: -80%;
+  width: 100%;
+  background-color: var(--mainColor);
+  border-radius: 8px;
+  box-shadow: var(--boxShadow);
+  z-index: 2; 
+   width: max-content; 
+}
+
+.dropDownItems.active {
+  display: block;
+}
+.dropDownBtn{
+font-size:45px;
+padding: 5px 10px;
+background-color:transparent;
+border: none;
+outline: none;
+border-radius: 2px;
+}
+.dark .dropDownBtn{
+  color: var(--darkText);
+}
+.dropDownBtn:hover{
+  cursor: pointer;
+}
+.dropDownItems li {
+  padding: 12px;
+  margin: 0;
+
+  transition: background-color 0.3s;
+
+  background-color: var(--mainColor);
+  cursor: pointer;
+}
+
+.dropDownItems li:hover {
+  background-color: #ffffffa9;
+}
+
+
+@media screen and (max-width: 725px) {
+  .navbar {
+    display: none;
+  }
+  .dropDownContainer {
+   
+  display: block;
+}
+.navContainer{
+ width: calc(100% - 50px);
+}
+}
+
+@media screen and (max-width: 410px) {
+
+.navContainer{
+ width:100%;
+}
 }
