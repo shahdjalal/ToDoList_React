@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap");
 
-.navContainer{
- width: calc(100% - 200px);
-   margin: auto;
-}
 nav {
   background-image: linear-gradient(to right, var(--mainColor), white);
   padding: 10px;
@@ -33,66 +29,63 @@ nav.dark {
   color: var(--darkText);
 }
 
-nav.dark a {
-  color: var(--darkText);
-}
-
 .modeBtn {
   background-color: transparent;
   border: none;
   font-size: 25px;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .modeBtn:hover {
   cursor: pointer;
   transform: scale(1.5);
 }
+
 .dark .modeBtn {
-  color:var(--darkText);
+  color: var(--darkText);
 }
 
 .dropDownContainer {
-  position: relative; 
+  position: relative;
   display: none;
 }
 
 .dropDownItems {
   display: none;
   position: absolute;
-  top: 100%;   
+  top: 100%;
   left: -80%;
   width: 100%;
   background-color: var(--mainColor);
   border-radius: 8px;
   box-shadow: var(--boxShadow);
-  z-index: 2; 
-   width: max-content; 
+  z-index: 2;
+  width: max-content;
 }
 
 .dropDownItems.active {
   display: block;
 }
-.dropDownBtn{
-font-size:45px;
-padding: 5px 10px;
-background-color:transparent;
-border: none;
-outline: none;
-border-radius: 2px;
+
+.dropDownBtn {
+  font-size: 45px;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 2px;
 }
-.dark .dropDownBtn{
+.dark .dropDownBtn {
   color: var(--darkText);
 }
-.dropDownBtn:hover{
+.dropDownBtn:hover {
   cursor: pointer;
 }
+
 .dropDownItems li {
   padding: 12px;
   margin: 0;
-
   transition: background-color 0.3s;
-
   background-color: var(--mainColor);
   cursor: pointer;
 }
@@ -101,23 +94,13 @@ border-radius: 2px;
   background-color: #ffffffa9;
 }
 
+/* responsive */
 
 @media screen and (max-width: 725px) {
   .navbar {
     display: none;
   }
   .dropDownContainer {
-   
-  display: block;
-}
-.navContainer{
- width: calc(100% - 50px);
-}
-}
-
-@media screen and (max-width: 410px) {
-
-.navContainer{
- width:100%;
-}
+    display: block;
+  }
 }

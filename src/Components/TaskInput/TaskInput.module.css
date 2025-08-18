@@ -1,3 +1,5 @@
+/* Task form */
+
 header {
   height: 90vh;
   display: flex;
@@ -25,8 +27,9 @@ header {
 }
 
 .taskIcon {
-  font-size: 35px;
+  font-size: 40px;
 }
+
 .taskInput {
   padding: 30px;
   width: 50%;
@@ -59,11 +62,12 @@ header {
   background-color: #6b63ffa3;
   padding-right: 2px;
 }
+
 .addBtn.dark {
   color: var(--darkText);
 }
 
-/* display */
+/* Task List */
 
 .title {
   display: flex;
@@ -79,7 +83,8 @@ header {
   cursor: pointer;
 }
 
-.checkIcon {
+.checkIcon,
+.edit {
   font-size: 25px;
   color: green;
 }
@@ -93,10 +98,6 @@ header {
   color: red;
   font-size: 25px;
 }
-.edit{
-  font-size: 25px;
-  color: green;
-}
 
 .delete:hover {
   padding-right: 1px;
@@ -107,7 +108,7 @@ header {
   border: none;
   font-size: 17px;
   background-image: linear-gradient(to right, var(--mainColor), white);
-  box-shadow: 3px 6px 5px #11111199;
+  box-shadow: var(--boxShadow);
   border-bottom: solid 3px var(--mainColor);
 }
 
@@ -117,14 +118,6 @@ header {
   background-image: linear-gradient(to right, red, white);
 }
 
-body.dark .deleteCompletedBtn {
-  color: var(--darkText);
-  background-image: linear-gradient(to right, var(--mainColor), black);
-}
-
-body.dark .deleteCompletedBtn:hover {
-  background-image: linear-gradient(to right, red, black);
-}
 .task {
   padding: 15px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
@@ -142,6 +135,7 @@ body.dark .deleteCompletedBtn:hover {
 .task:hover {
   transform: scale(110%);
 }
+
 .tasksButtons {
   display: flex;
   justify-content: space-between;
@@ -166,35 +160,22 @@ body.dark .deleteCompletedBtn:hover {
   color: var(--mainText);
 }
 
-/* Dark Mode */
-body.dark .filterSelect {
+
+.dark .filterSelect,
+.dark .deleteCompletedBtn {
   background-image: linear-gradient(to right, var(--mainColor), black);
   color: var(--darkText);
 }
 
-body.dark .filterSelect option {
+.dark .filterSelect option {
   background-color: var(--mainColor);
   color: var(--darkText);
 }
 
+/* responsive */
 @media screen and (max-width: 1315px) {
   .taskInput {
     width: 60%;
-  }
-}
-
-@media screen and (max-width: 855px) {
-  .task {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 640px) {
-  .taskInput {
-    width: 100%;
-  }
-  .addBtn {
-    width: 100%;
-    padding: 10px 0;
   }
 }
 
@@ -211,6 +192,12 @@ body.dark .filterSelect option {
   }
 }
 
+@media screen and (max-width: 855px) {
+  .task {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 845px) {
   h2 {
     width: 100%;
@@ -223,5 +210,21 @@ body.dark .filterSelect option {
     margin-bottom: 40px;
     justify-content: center;
     gap: 10px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .taskInput {
+    width: 100%;
+  }
+  .addBtn {
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .typewriter {
+    font-size: 20px;
   }
 }

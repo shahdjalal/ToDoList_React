@@ -18,9 +18,11 @@ export default function TaskList({
   deleteCompleted,
   filter,
   setFilter,
-  startEdit
+  startEdit,
 }) {
 
+  const {darkMode} = useContext(ThemeContext);
+  
   //filter
   const filteredTasks = tasks.filter((task) => {
     if (filter === "all") return true;
@@ -30,9 +32,8 @@ export default function TaskList({
 
   return (
     <>
-      {/* display */}
-
-      <div className="allTasks" id="all-tasks">
+  
+      <div className= {` ${style.allTasks}  ${darkMode ? style.dark : ""}`} id="all-tasks">
         <div className="container">
           <div className={style.title}>
             <h2>
