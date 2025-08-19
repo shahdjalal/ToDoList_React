@@ -4,7 +4,7 @@ import style from './Footer.module.css'
 import { ThemeContext } from '../context/ThemeContext';
 export default function Footer() {
 
-   const { darkMode, toggleTheme } = useContext(ThemeContext);
+   const { darkMode } = useContext(ThemeContext);
 
 
   return (
